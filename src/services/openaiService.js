@@ -17,7 +17,7 @@ class OpenAIService{
             })
             return chatResponse.data.choices[0].message
         } catch (error) {
-            console.log('Error on send message')
+            console.log('Error on send message', error)
         }
     }
 
@@ -29,10 +29,9 @@ class OpenAIService{
             )
             return transcriptionResponse.data.text
         } catch (error) {
-            console.log('Error on message transcription')
+            console.log('Error on message transcription', error.message)
         }
     }
-
 }
 
 export const openAIService = new OpenAIService(config.get('OPENAI_API_KEY'))
